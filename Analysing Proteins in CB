@@ -1,0 +1,54 @@
+1) Geenmic data analysis  
+
+import numpy as np
+
+# Example: Analyzing single nucleotide polymorphism (SNP) data
+# Assume snp_data is a NumPy array of shape (num_individuals, num_snps)
+
+# Generate random SNP data for demonstration
+num_individuals = 100
+num_snps = 1000
+snp_data = np.random.randint(2, size=(num_individuals, num_snps))
+
+# Calculate allele frequencies
+allele_frequencies = np.mean(snp_data, axis=0)
+
+print("Allele Frequencies:")
+print(allele_frequencies[:10])  # Print first 10 for brevity
+
+# Plot allele frequencies
+plt.hist(allele_frequencies, bins=20)
+plt.xlabel('Allele Frequency')
+plt.ylabel('Count')
+plt.title('Distribution of Allele Frequencies')
+plt.show()
+
+
+2) Protein structure analysis 
+
+import numpy as np
+
+# Example: Calculating distances between atoms in a protein
+# Assume we have loaded atomic coordinates into a NumPy array of shape (num_atoms, 3)
+
+# Generate random coordinates for demonstration
+num_atoms = 10
+coordinates = np.random.random((num_atoms, 3))
+
+# Calculate pairwise distance matrix
+distances = np.sqrt(np.sum((coordinates[:, np.newaxis, :] - coordinates[np.newaxis, :, :]) ** 2, axis=-1))
+
+print("Pairwise Distance Matrix:")
+print(distances)
+
+# Plot a heatmap of the distance matrix
+import seaborn as sns
+
+sns.heatmap(distances, annot=True, cmap='viridis')
+plt.xlabel('Atom index')
+plt.ylabel('Atom index')
+plt.title('Pairwise Distances Between Atoms')
+plt.show()
+
+
+3 ) 
